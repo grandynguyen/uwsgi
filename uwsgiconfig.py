@@ -2,13 +2,14 @@
 
 uwsgi_version = '2.1-dev'
 
+import platfrom
 import os
 import re
 import time
-uwsgi_os = os.environ.get('UWSGI_FORCE_OS', os.uname()[0])
-uwsgi_os_k = re.split('[-+]', os.uname()[2])[0]
-uwsgi_os_v = os.uname()[3]
-uwsgi_cpu = os.uname()[4]
+uwsgi_os = os.environ.get('UWSGI_FORCE_OS', platfrom.uname()[0])
+uwsgi_os_k = re.split('[-+]', platfrom.uname()[2])[0]
+uwsgi_os_v = platfrom.uname()[3]
+uwsgi_cpu = platfrom.uname()[4]
 
 import sys
 import subprocess
